@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2018 at 09:52 AM
+-- Generation Time: May 10, 2018 at 11:32 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -31,15 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `id_category` int(11) NOT NULL,
   `category_name` varchar(100) NOT NULL,
-  `type` int(1) NOT NULL,
-  `img` varchar(100) NOT NULL
+  `category_type` int(1) NOT NULL,
+  `category_img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id_category`, `category_name`, `type`, `img`) VALUES
+INSERT INTO `category` (`id_category`, `category_name`, `category_type`, `category_img`) VALUES
 (1, 'Belanja', 0, 'img1.png'),
 (2, 'Gaji', 1, 'img1.png'),
 (3, 'Pinjaman', 2, 'img1.png');
@@ -54,11 +54,19 @@ CREATE TABLE `transaction` (
   `id_transaction` int(11) NOT NULL,
   `nominal` int(20) NOT NULL,
   `note` varchar(100) NOT NULL,
-  `with_id` int(11) NOT NULL,
+  `with_name` varchar(100) NOT NULL,
   `id_wallet_user` int(11) NOT NULL,
   `date` date NOT NULL,
   `id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id_transaction`, `nominal`, `note`, `with_name`, `id_wallet_user`, `date`, `id_category`) VALUES
+(1, 2000, 'belanja donut', 'andre', 1, '2018-05-10', 1),
+(5, 20000, 'komedi1', 'andre', 1, '2018-05-10', 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +175,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
