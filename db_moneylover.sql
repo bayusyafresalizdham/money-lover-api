@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2018 at 11:32 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 5.6.34
+-- Generation Time: May 29, 2018 at 10:41 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_ml`
+-- Database: `db_moneylover`
 --
 
 -- --------------------------------------------------------
@@ -66,7 +66,8 @@ CREATE TABLE `transaction` (
 
 INSERT INTO `transaction` (`id_transaction`, `nominal`, `note`, `with_name`, `id_wallet_user`, `date`, `id_category`) VALUES
 (1, 2000, 'belanja donut', 'andre', 1, '2018-05-10', 1),
-(5, 20000, 'komedi1', 'andre', 1, '2018-05-10', 1);
+(5, 20000, 'komedi1', 'andre', 3, '2018-05-10', 1),
+(6, 200000, 'komedi1', 'andre', 2, '2018-05-10', 1);
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `token`) VALUES
-(1, 'bayusyafresalizdham@gmail.com', '9d5efc8d883087a4d84952411f8c2b5c', '5ca8c2eebc21839c556e93565afff42d');
+(1, 'bayusyafresalizdham@gmail.com', '9d5efc8d883087a4d84952411f8c2b5c', '5ca8c2eebc21839c556e93565afff42d'),
+(12, 'bayu@gmail.com', '9d5efc8d883087a4d84952411f8c2b5c', '6d0f118a787005f93556c0233c5a90ac');
 
 -- --------------------------------------------------------
 
@@ -116,16 +118,20 @@ INSERT INTO `wallet_type` (`id_wallet_type`, `wallet_name`) VALUES
 CREATE TABLE `wallet_user` (
   `id_wallet_user` int(11) NOT NULL,
   `id_wallet_type` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `name_from_user` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wallet_user`
 --
 
-INSERT INTO `wallet_user` (`id_wallet_user`, `id_wallet_type`, `id_user`) VALUES
-(1, 1, 1),
-(2, 2, 1);
+INSERT INTO `wallet_user` (`id_wallet_user`, `id_wallet_type`, `id_user`, `name_from_user`) VALUES
+(1, 1, 1, ''),
+(2, 2, 1, ''),
+(5, 1, 12, ''),
+(6, 2, 12, ''),
+(7, 3, 1, 'paypal');
 
 --
 -- Indexes for dumped tables
@@ -175,13 +181,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `wallet_type`
@@ -193,7 +199,7 @@ ALTER TABLE `wallet_type`
 -- AUTO_INCREMENT for table `wallet_user`
 --
 ALTER TABLE `wallet_user`
-  MODIFY `id_wallet_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_wallet_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
