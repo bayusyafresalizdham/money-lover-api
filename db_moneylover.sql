@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 29, 2018 at 10:41 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2018 at 04:20 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +40,32 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id_category`, `category_name`, `category_type`, `category_img`) VALUES
 (1, 'Belanja', 0, 'img1.png'),
 (2, 'Gaji', 1, 'img1.png'),
-(3, 'Pinjaman', 2, 'img1.png');
+(3, 'Pinjaman', 2, 'img1.png'),
+(4, 'Bills & Utilities', 0, 'icon_135.png'),
+(5, 'Education', 0, 'ic_category_education.png'),
+(6, 'Entertainment', 0, 'ic_category_entertainment.png'),
+(7, 'Family', 0, 'ic_category_family.png'),
+(8, 'Fees & Charges', 0, 'ic_category_other_expense.png'),
+(9, 'Food & Beverage', 0, 'ic_category_foodndrink.png'),
+(10, 'Friends & Lover', 0, 'ic_category_friendnlover.png'),
+(11, 'Gifts & Donations', 0, 'ic_category_give.png'),
+(12, 'Health & Fitness', 0, 'ic_category_medical.png'),
+(13, 'Insurances', 0, 'ic_category_other_expense.png'),
+(14, 'Investment', 0, 'ic_category_invest.png'),
+(15, 'Others', 0, 'ic_category_other_expense.png'),
+(16, 'Shopping', 0, 'ic_category_shopping.png'),
+(17, 'Transfer', 0, 'icon_142.png'),
+(18, 'Transportation', 0, 'ic_category_transport.png'),
+(19, 'Travel', 0, 'ic_category_travel.png'),
+(20, 'Award', 1, 'ic_category_award.png'),
+(21, 'Gifts', 1, 'ic_category_give.png'),
+(22, 'Interest Money', 1, 'ic_category_interestmoney.png'),
+(23, 'Others', 1, 'ic_category_other_expense.png'),
+(24, 'Salary', 1, 'ic_category_salary.png'),
+(25, 'Selling', 1, 'ic_category_selling.png'),
+(26, 'Transfer', 1, 'icon_143.png'),
+(27, 'Debt', 2, 'ic_category_debt.png'),
+(28, 'Loan', 2, 'ic_category_loan.png');
 
 -- --------------------------------------------------------
 
@@ -175,33 +198,27 @@ ALTER TABLE `wallet_user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `wallet_type`
 --
 ALTER TABLE `wallet_type`
   MODIFY `id_wallet_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `wallet_user`
 --
 ALTER TABLE `wallet_user`
   MODIFY `id_wallet_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
